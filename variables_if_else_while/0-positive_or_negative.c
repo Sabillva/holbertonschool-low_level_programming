@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+int n;
+
+/* Initialize random number generator */
+srand(time(0));
+
+/* Generate a random number between RAND_MIN and RAND_MAX */
+n = rand();
+
+/* Check if n is positive, negative, or zero */
+if (n > 0)
+{
+printf("%d is positive\n", n);
+}
+else if (n < 0)
+{
+printf("%d is negative\n", n);
+}
+else
+{
+printf("%d is zero\n", n);
+}
+
+return (0);
+}
+
