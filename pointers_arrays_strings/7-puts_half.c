@@ -6,6 +6,7 @@
  * puts_half - Prints the second half of a string, followed by a new line.
  * @str: The input string
  */
+
 void puts_half(char *str)
 {
 int len = strlen(str);
