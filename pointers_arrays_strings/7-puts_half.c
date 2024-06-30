@@ -24,22 +24,21 @@ return (len);
  */
 void puts_half(char *str)
 {
-int len = _strlen(str);
-int i, start;
+int index = 0, len = 0, n;
 
-if (len % 2 == 0)
+while (str[index++])
+len++;
+
+if ((len % 2) == 0)
 {
-start = len / 2;
+n = len / 2;
 }
 else
 {
-start = (len - 1) / 2;
+n = (len + 1) / 2;
 }
+for (index = n; index < len; index++)
+_putchar(str[index]);
 
-for (i = start; i < len; i++)
-{
-_putchar(str[i]);
-}
 _putchar('\n');
 }
-
