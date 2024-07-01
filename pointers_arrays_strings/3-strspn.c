@@ -10,26 +10,22 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-unsigned int count = 0;
-int match;
+unsigned int count = 0, match = 0, a;
+while (accept[count])
+{
+	a = 0;
 
-while (*s)
-{
-match = 0;
-while (*accept)
-{
-if (*s == *accept)
-{
-count++;
-match = 1;
-break;
+		while (s[a] != 32)
+		{
+			if (accept[count] == s[a])
+			{
+				match++;
+			}
+
+			a++;
+		}
+
+		count++;
 }
-accept++;
-}
-if (!match)
-break;
-s++;
-accept -= count;
-}
-return (count);
+return (match);
 }
