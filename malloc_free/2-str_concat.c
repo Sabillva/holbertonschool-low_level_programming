@@ -1,46 +1,53 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
 /**
- * str_concat - Concatenates two strings.
- * @s1: The first string.
- * @s2: The second string.
- *
- * Return: A pointer to the newly allocated space in memory which contains
- *         the contents of s1, followed by the contents of s2.
- *         NULL on failure.
- */
+  * str_concat - Concatenates two strings of any size
+  * @s1: the first string to concatenate
+  * @s2: the second string to concatenate
+  *
+  * Return: the two strings concatenated
+  */
 char *str_concat(char *s1, char *s2)
 {
-	char *result;
-	size_t len1 = 0, len2 = 0;
+	int i = 0, j = 0, k = 0, l = 0;
+	char *s;
 
-	/*Handle NULL inputs by treating them as empty strings*/
 	if (s1 == NULL)
 		s1 = "";
+
 	if (s2 == NULL)
 		s2 = "";
 
-	/*Calculate the lengths of the strings*/
+	while (s1[i])
+		i++;
 
-	len1 = strlen(s1);
-	len2 = strlen(s2);
+	while (s2[j])
+		j++;
 
-	/*Allocate memory for the concatenated string (+1 for the null terminator)*/
-	result = (char *)malloc(len1 + len2 + 1);
+	l = i + j;
+	s = malloc((sizeof(char) * l) + 1);
 
-	/*Check if memory allocation was successful*/
-	if (result == NULL)
+	if (s == NULL)
 		return (NULL);
 
-	/*Copy the first string into the result*/
-	strcpy(result, s1);
+	j = 0;
 
-	/*Append the second string to the result*/
-	strcat(result, s2);
+	while (k < l)
+	{
+		if (k <= i)
+			s[k] = s1[k];
 
-	return (result);
+		if (k >= i)
+		{
+			s[k] = s2[j];
+			j++;
+		}
+
+		k++;
+	}
+
+	s[k] = '\0';
+	return (s);
 }
-
